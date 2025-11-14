@@ -1,0 +1,109 @@
+.chat-window {
+  position: fixed;
+  width: 400px;
+  height: 402px;
+  background: #ffffff;
+  border: 1px solid #ccd0d6;
+  border-radius: 32px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+.chat-window--bottom-right {
+  bottom: 16px;
+  right: 16px;
+}
+
+.chat-window--bottom-center {
+  bottom: 16px;
+  left: calc(50% - 200px);
+}
+
+.chat-window__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.chat-window__header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 8px 8px 24px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  flex-shrink: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.chat-window__title {
+  flex: 1 0 0;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #001333;
+  margin: 0;
+  min-height: 1px;
+  min-width: 1px;
+  white-space: pre-wrap;
+}
+
+.chat-window__close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border: none;
+  background: transparent;
+  border-radius: 1000px;
+  cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+  transition: background-color 0.2s ease;
+}
+
+.chat-window__close-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.chat-window__close-btn:active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.chat-window__close-btn:focus {
+  outline: 2px solid rgba(42, 52, 61, 0.3);
+  outline-offset: 2px;
+}
+
+.chat-window__close-icon {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-window__close-icon svg {
+  width: 15.42px;
+  height: 15.42px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.chat-window__composer-wrapper {
+  padding: 8px;
+  flex-shrink: 0;
+}
+

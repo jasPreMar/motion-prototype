@@ -1,0 +1,135 @@
+.composer {
+  background: #ffffff;
+  border: 1px solid #ccd0d6;
+  border-radius: 24px;
+  width: 100%;
+  position: relative;
+  box-shadow: 
+    1px 1px 2px 0 rgba(0, 19, 51, 0.08),
+    0 3px 16px 0 rgba(0, 19, 51, 0.08),
+    2px 4px 6px -3px rgba(0, 19, 51, 0.16);
+}
+
+.composer__container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.composer__text-area {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 1px;
+  min-width: 1px;
+  border-radius: 4px;
+}
+
+.composer__input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 0 16px;
+  border-radius: 16px;
+}
+
+.composer__content {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 24px;
+  min-width: 24px;
+  overflow: hidden;
+  padding: 16px 0;
+}
+
+.composer__textarea {
+  flex: 1 0 0;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+  color: #001333;
+  border: none;
+  outline: none;
+  resize: none;
+  background: transparent;
+  min-height: 24px;
+  max-height: 240px; /* 10 rows * 24px line-height */
+  min-width: 1px;
+  width: 100%;
+  white-space: pre-wrap;
+  overflow-y: hidden;
+  transition: height 0.1s ease;
+}
+
+.composer__textarea::placeholder {
+  color: #99a1ad;
+}
+
+.composer__actions-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  align-self: stretch;
+}
+
+.composer__actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 12px;
+  flex-shrink: 0;
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+.composer__action-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 16px;
+  border: none;
+  background: none;
+  box-shadow: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease;
+}
+
+.composer__actions:hover .composer__action-btn {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.composer__action-btn:active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.composer__action-btn svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+  color: #005DFF;
+}
+
+.composer__voice-btn {
+  height: 34px;
+  background: none;
+  box-shadow: none;
+  border: none;
+}
+
+.composer__voice-btn svg {
+  color: #005DFF;
+}
+
