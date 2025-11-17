@@ -2,16 +2,28 @@ import { motion } from "motion/react";
 import Composer from "./Composer";
 import "./ChatWindow.css";
 
-const ChatWindow = ({ onClose, position = "bottom-right" }) => {
+const ChatWindow = ({ onClose, position = "bottom-right", layoutId }) => {
   const positionClass = position === "bottom-right" ? "chat-window--bottom-right" : "chat-window--bottom-center";
+
+  // When layoutId is provided, use layout transitions (for CentralCommand)
+  // When layoutId is not provided, use initial/exit animations (for SideChat)
+  const motionProps = layoutId
+    ? {
+        layoutId,
+        exit: { y: 20, opacity: 0 },
+        transition: { type: "spring", bounce: 0, duration: 0.35 }
+      }
+    : {
+        initial: { y: 20, opacity: 0 },
+        animate: { y: 0, opacity: 1 },
+        exit: { y: 20, opacity: 0 },
+        transition: { type: "spring", bounce: 0, duration: 0.35 }
+      };
 
   return (
     <motion.div 
       className={`chat-window ${positionClass}`}
-      initial={{ y: 20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      exit={{ y: 20, opacity: 0 }}
-      transition={{ type: "spring", bounce: 0, duration: 0.35 }}
+      {...motionProps}
     >
       <div className="chat-window__container">
         <div className="chat-window__header">
