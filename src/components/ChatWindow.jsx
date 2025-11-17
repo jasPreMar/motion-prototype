@@ -10,6 +10,7 @@ const ChatWindow = ({ onClose, position = "bottom-right", layoutId }) => {
   const motionProps = layoutId
     ? {
         layoutId,
+        animate: { borderRadius: 32 },
         exit: { y: 20, opacity: 0 },
         transition: { type: "spring", bounce: 0, duration: 0.35 }
       }
