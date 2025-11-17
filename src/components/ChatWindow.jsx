@@ -5,11 +5,25 @@ import "./ChatWindow.css";
 const ChatWindow = ({ onClose, position = "bottom-right", layoutId }) => {
   const positionClass = position === "bottom-right" ? "chat-window--bottom-right" : "chat-window--bottom-center";
 
+  // When layoutId is provided, use layout transitions (for CentralCommand)
+  // When layoutId is not provided, use initial/exit animations (for SideChat)
+  const motionProps = layoutId
+    ? {
+        layoutId,
+        exit: { y: 20, opacity: 0 },
+        transition: { type: "spring", bounce: 0, duration: 0.35 }
+      }
+    : {
+        initial: { y: 20, opacity: 0 },
+        animate: { y: 0, opacity: 1 },
+        exit: { y: 20, opacity: 0 },
+        transition: { type: "spring", bounce: 0, duration: 0.35 }
+      };
+
   return (
     <motion.div 
       className={`chat-window ${positionClass}`}
-      layoutId={layoutId}
-      transition={{ type: "spring", bounce: 0, duration: 0.35 }}
+      {...motionProps}
     >
       <div className="chat-window__container">
         <div className="chat-window__header">
@@ -44,6 +58,17 @@ const ChatWindow = ({ onClose, position = "bottom-right", layoutId }) => {
               </svg>
             </div>
           </div>
+        </div>
+        <div className="chat-window__conversation">
+          <motion.div 
+            className="chat-window__logo-container"
+          >
+            <motion.div 
+              className="chat-window__skye-logo-container"
+            >
+              <img src="/SkyeLogo.png" alt="Skye Logo" className="chat-window__skye-logo" />
+            </motion.div>
+          </motion.div>
         </div>
         <div className="chat-window__composer-wrapper">
           <Composer />

@@ -17,22 +17,27 @@ const FAB = () => {
   return (
     <AnimatePresence>
       {isChatOpen ? (
-        <ChatWindow 
+        <ChatWindow
           key="chat-window"
-          onClose={handleClose} 
-          position="bottom-right" 
-          layoutId="chat-fab" 
+          onClose={handleClose}
+          position="bottom-right"
         />
       ) : (
-        <motion.div 
+        <motion.div
           key="fab"
-          className="chat-fab" 
-          onClick={handleClick} 
+          className="chat-fab"
+          onClick={handleClick}
           style={{ cursor: "pointer" }}
-          layoutId="chat-fab"
-          transition={{ type: "spring", bounce: 0, duration: 0.25 }}
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: 20, opacity: 0 }}
+          transition={{ type: "tween", ease: [0.4, 0, 0.2, 1], duration: 0.3 }}
         >
-          <div className="chat-fab__base" />
+          <motion.div 
+            className="skye-logo-container"
+          >
+            <img src="/SkyeLogo.png" alt="Skye Logo" className="skye-logo" />
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>

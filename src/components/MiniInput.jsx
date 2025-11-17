@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import "./MiniInput.css";
 import ChatWindow from "./ChatWindow";
+import ArrowUpIcon from "../assets/icons/ArrowUpStroked.svg";
 
 const MiniInput = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -32,7 +33,12 @@ const MiniInput = () => {
           layoutId="chat-mini-input"
           transition={{ type: "spring", bounce: 0, duration: 0.25 }}
         >
-          <div className="mini-input__base" />
+          <div className="mini-input__base">
+            <span className="mini-input__placeholder">Ask Skye...</span>
+            <div className="mini-input__icon-wrapper">
+              <img src={ArrowUpIcon} alt="Arrow up" className="mini-input__icon" />
+            </div>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
